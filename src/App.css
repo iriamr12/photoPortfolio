@@ -1,3 +1,15 @@
+/* App.css */
+html, body, #root {
+  cursor: none; /* Hide default cursor globally */
+}
+
+.custom-pointer {
+  position: fixed;
+  pointer-events: none; /* Allow clicks to pass through the custom cursor */
+  z-index: 9999; /* Ensure it's on top */
+}
+
+
 .App {
   text-align: center;
 }
@@ -36,3 +48,6 @@
     transform: rotate(360deg);
   }
 }
+
+
+
