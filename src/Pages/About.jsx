@@ -1,10 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import me from '../assets/me.jpg';
 import HeaderAbout from '../Common/HeaderAbout';
 import { FaLinkedin, FaBehance } from 'react-icons/fa'; // Importing icons
 
 const About = () => {
   const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    const textElement = document.getElementById('scrolling-text');
+    let pos = 100; // Initial position of the text off the screen
+
+    const scrollText = () => {
+      pos -= 1;
+      if (pos < -textElement.clientWidth) {
+        pos = window.innerWidth; // Reset position once it goes off the screen
+      }
+      textElement.style.left = pos + 'px';
+      requestAnimationFrame(scrollText);
+    };
+
+    scrollText(); 
+
+    return () => cancelAnimationFrame(scrollText);
+  }, []);
 
   return (
     <div className="min-h-screen bg-customLight">
@@ -21,7 +39,6 @@ const About = () => {
               className='absolute inset-0 w-full h-full object-cover opacity-90'
             />
           )}
-
           <div className='absolute top-1/4 right-32 transform translate-x-full text-2xl'>
             Iria Moreno Rodriguez
             <br />
@@ -56,7 +73,13 @@ const About = () => {
           </div>
         </div>
       </div>
-    </div>
+
+        {/* Scrolling Text Container */}
+        <div id="scrolling-text" className="absolute whitespace-nowrap text-2xl font-thin font-lora ">
+          I love to walk around as it allows me to reach the 10,000 mandatory steps of the day and, on the way, capture light reflecting on people faces, facades, or nature. Regardless, light will keep on reflecting while life keeps on passing.
+        </div>
+      </div>
+
   );
 };
 

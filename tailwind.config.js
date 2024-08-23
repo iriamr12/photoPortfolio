@@ -10,6 +10,7 @@ module.exports = {
         lora: ['Lora', 'serif'],
         playfair: ['"Playfair Display"', 'serif'],
         founders: ['Founders Grotesk', 'sans-serif'],  // Founders Grotesk added
+        copernicus: ['Galaxie Copernicus', 'sans-serif'], // Galaxie Copernicus added
       },
       colors: {
         customGreen: '#559383',
@@ -25,7 +26,18 @@ module.exports = {
       letterSpacing: {
         'wider': '.1rem',
       },
+      transitionDuration: {
+        '500': '500ms', 
+        '700': '700ms', 
+      },
+      transitionTimingFunction: {
+        'in-out-smooth': 'cubic-bezier(0.4, 0, 0.2, 1)', // Smooth easing function
+      },
+      opacity: {
+        '0': '0',
+        '100': '1',
+      },
     },
   },
- 
+  plugins: [],
 };

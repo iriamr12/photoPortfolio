@@ -29,7 +29,7 @@ const ImageWithOverlay = ({ src, alt, position }) => {
           
           <div
             className={`absolute top-1/2 ${
-              position === 'left' ? 'right-48 transform translate-x-full' : 'left-20 transform -translate-x-full'
+              position === 'left' ? 'right-48 transform translate-x-full' : 'left-48 transform -translate-x-full'
             } -translate-y-1/4 text-3xl text-black`}
           >
             {alt}
